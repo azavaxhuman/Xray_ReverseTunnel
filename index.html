@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DDS XRAY Reverse Tunnel</title>
+    <style>
+      body {
+        margin: 0;
+        font-family: "Roboto", Arial, sans-serif;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        background-color: #0f172a;
+        color: #c9d1d9;
+      }
+
+      h1 {
+        font-size: 2.5rem;
+        color: #58a6ff;
+        margin-bottom: 10rem;
+      }
+
+      h1 a {
+        font-weight: 500;
+        font-size: 5rem;
+        text-decoration: none;
+        color: inherit;
+        transition: 0.3s ease;
+      }
+
+      h1 a:hover {
+        font-weight: 400;
+        font-size: 4rem;
+        color: #79c0ff;
+        transition: 0.3s ease;
+      }
+
+      .cards {
+        display: flex;
+        gap: 1rem;
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+
+      .card {
+        width: 320px;
+        height: 220px;
+        background: #1e293b;
+        border-radius: 12px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        cursor: pointer;
+      }
+
+      .card:hover {
+        background-color: #3c5988;
+        transform: translateY(-10px);
+        box-shadow: 0 10px 20px #1b2a41;
+        transition: 0.5s ease;
+      }
+
+      .card span {
+        padding-bottom: 0.01rem;
+        font-size: 1.1rem;
+        color: #c9d1d9;
+      }
+      .card img {
+        width: 7rem;
+        margin: 0 0 2rem 0;
+        transition: transform 0.3s ease;
+      }
+      .card img#key:hover {
+        transform: rotate(10deg);
+        transition: transform 0.3s ease;
+      }
+      .card img#tunnel:hover {
+        transform: translateY(-5px);
+        transition: transform 0.3s ease;
+      }
+      .footer {
+        background-color: #1e293b;
+        padding: 0.8rem;
+        border-radius: 1rem;
+        margin-top: 10rem;
+        font-size: 0.9rem;
+        color: #b8cadf;
+        transition: color 0.3s ease;
+      }
+
+      .footer a {
+        color: #ebebeb;
+        text-decoration: none;
+        margin: 0 0.5rem;
+        transition: color 0.3s ease;
+      }
+
+      .footer a:hover {
+        color: #79c0ff;
+      }
+
+      @media (max-width: 768px) {
+        .cards {
+          flex-direction: column;
+          align-items: center;
+        }
+
+        .card {
+          width: 90%;
+          max-width: 300px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <h1><a href="#" id="title">DDS XRAY REVERSE TUNNEL</a></h1>
+    <div class="cards" id="cards_id">
+      <div class="card" onclick="navigateTo('uuid')">
+        <img id="key" src="/Xray_ReverseTunnel/Assests/key.svg" />
+        <span>KEY | UUID GENERATOR</span>
+      </div>
+      <div class="card" onclick="navigateTo('reality')">
+        <img id="tunnel" src="/Xray_ReverseTunnel/Assests/tunnel.svg" />
+        <span>REVERSE TUNNEL (REALITY)</span>
+      </div>
+      <div class="card" onclick="navigateTo('vless')">
+        <img id="tunnel" src="/Xray_ReverseTunnel/Assests/tunnel.svg" />
+        <span>REVERSE TUNNEL (VLESS + WS)</span>
+      </div>
+    </div>
+    <div class="footer">
+      <a href="#">GITHUB</a>
+      |
+      <a href="#">YOUTUBE</a>
+      |
+      <a href="#">TELEGRAM</a>
+    </div>
+
+    <script>
+      document
+        .getElementById("cards_id")
+        .addEventListener("mouseover", function () {
+          const titleElement = document.getElementById("title");
+          titleElement.style.transform = "translateY(-5px)";
+          titleElement.style.fontWeight = "400";
+          titleElement.style.fontSize = "4rem";
+        });
+
+      document
+        .getElementById("cards_id")
+        .addEventListener("mouseout", function () {
+          const titleElement = document.getElementById("title");
+          titleElement.style.transform = "translateY(0)";
+          titleElement.style.fontWeight = "500";
+          titleElement.style.fontSize = "5rem";
+        });
+
+      function navigateTo(destination) {
+        switch (destination) {
+          case "uuid":
+            window.location.href = "./Key-ID_Generator/index.html";
+            break;
+          case "reality":
+            window.location.href = "./Reality/index.html";
+            break;
+          case "vless":
+            window.location.href = "./VLESS-WS/index.html";
+            break;
+          default:
+            console.error("Unknown destination:", destination);
+        }
+      }
+    </script>
+  </body>
+</html>
