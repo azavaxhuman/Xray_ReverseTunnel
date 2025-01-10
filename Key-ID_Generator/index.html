@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DDS  Xray Key Generator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #1a1a2e;
+            color: #ffffff;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        .container {
+            text-align: center;
+            padding: 20px;
+        }
+
+        h1 {
+            margin-bottom: 10px;
+        }
+
+        h2 {
+            font-weight: normal;
+            margin-bottom: 30px;
+        }
+
+        .field {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        .field label {
+            display: block;
+            font-size: 14px;
+            margin-bottom: 5px;
+        }
+
+        .field input {
+            width: 300px;
+            padding: 10px;
+            border-radius: 5px;
+            border: none;
+            background-color: #2b2b3b;
+            color: #ffffff;
+            font-size: 14px;
+        }
+
+        .copy-button {
+            background-color: #007bff;
+            color: #ffffff;
+            padding: 10px 15px;
+            margin-left: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        .copy-button:hover {
+            background-color: #0056b3;
+        }
+
+        .buttons {
+            margin-top: 20px;
+        }
+
+        .buttons a {
+            text-decoration: none;
+            color: #ffffff;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-weight: bold;
+            margin: 0 10px;
+            display: inline-block;
+        }
+
+        .buttons .youtube {
+            background-color: #ff0000;
+        }
+
+        .buttons .telegram {
+            background-color: #0088cc;
+        }
+
+        .buttons a:hover {
+            opacity: 0.8;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>DDS Key Generator</h1>
+        <h2>By: Daily Digital Skills (V 1.0)</h2>
+
+        <div class="field">
+            <label for="uuid">UUID:</label>
+            <input type="text" placeholder="UUID" id="uuid" readonly>
+            <button class="copy-button" onclick="copyToClipboard('uuid')">Copy</button>
+        </div>
+
+        <div class="field">
+            <label for="shortids">ShortIds:</label>
+            <input type="text" placeholder="ShortIds" id="shortids" readonly>
+            <button class="copy-button" onclick="copyToClipboard('shortids')">Copy</button>
+        </div>
+
+        <div class="field">
+            <label for="privateKey">Private Key:</label>
+            <input type="text" placeholder="PrivateKey" id="privateKey" readonly>
+            <button class="copy-button" onclick="copyToClipboard('privateKey')">Copy</button>
+        </div>
+
+        <div class="field">
+            <label for="publicKey">Public Key:</label>
+            <input type="text" placeholder="PublicKey" id="publicKey" readonly>
+            <button class="copy-button" onclick="copyToClipboard('publicKey')">Copy</button>
+        </div>
+
+        <div class="field">
+            <label for="randomString">\Password:</label>
+            <input type="text" placeholder="Random String" id="randomString" readonly>
+            <button class="copy-button" onclick="copyToClipboard('randomString')">Copy</button>
+        </div>
+
+        <button class="copy-button" onclick="generateAll()">Generate</button>
+        <hr style="width: 80%; border: 1px solid #cccccc6c; margin: 20px auto;">
+
+        <div class="buttons">
+            <a href="https://www.youtube.com/@Dailydigitalskills" class="youtube" target="_blank">YouTube</a>
+            <a href="https://t.me/DAILYDIGITALSKILLS" class="telegram" target="_blank">Telegram</a>
+        </div>
+    </div>
+
+    <script>
+        function generateUUID() {
+            return ([1e7]+-1e3+-4e3+-8e3+-1e11).replace(/[018]/g, c =>
+                (c ^ crypto.getRandomValues(new Uint8Array(1))[0] & 15 >> c / 4).toString(16)
+            );
+        }
+
+        function generateShortID() {
+            return Array.from(crypto.getRandomValues(new Uint8Array(8)))
+                .map(b => b.toString(16).padStart(2, '0')).join('');
+        }
+
+        async function loadKeys() {
+    try {
+        const response = await fetch('keys.json'); 
+        if (!response.ok) {
+            throw new Error('Failed to load keys.json');
+        }
+
+        const data = await response.json(); 
+
+        const randomIndex = Math.floor(Math.random() * data.keys.length); 
+        document.getElementById('privateKey').value = data.keys[randomIndex].privateKey;
+        document.getElementById('publicKey').value = data.keys[randomIndex].publicKey;
+    } catch (error) {
+        console.error('Error loading keys:', error);
+        alert('Failed to load keys. Please check the console for more details.');
+    }
+}
+
+
+
+        function generateRandomString(length = 10) {
+            const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+            let result = '';
+            for (let i = 0; i < length; i++) {
+                result += chars.charAt(Math.floor(Math.random() * chars.length));
+            }
+            return result;
+        }
+
+        function copyToClipboard(id) {
+            const input = document.getElementById(id);
+            input.select();
+            input.setSelectionRange(0, 99999); // For mobile devices
+            navigator.clipboard.writeText(input.value).then(() => {
+                alert(`${id} copied to clipboard!`);
+            });
+        }
+
+        function generateAll() {
+            document.getElementById('uuid').value = generateUUID();
+            document.getElementById('shortids').value = generateShortID();
+            document.getElementById('randomString').value = generateRandomString();
+            loadKeys();
+        }
+
+        // Initialize fields on load
+        generateAll();
+    </script>
+</body>
+</html>

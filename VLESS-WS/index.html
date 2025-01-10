@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DDS Reverse Tunnel Config Generator ( VLESS + WS )</title>
+    <link rel="stylesheet" href="./style.css" />
+    <links
+      rel="icon"
+      href="https://dailydigitalskills.online/wp-content/uploads/2024/05/cropped-Frame-42-e1714651500707-32x32.png"
+      sizes="32x32"
+    />
+    <link
+      rel="icon"
+      href="https://dailydigitalskills.online/wp-content/uploads/2024/05/cropped-Frame-42-e1714651500707-192x192.png"
+      sizes="192x192"
+    />
+    <link
+      rel="apple-touch-icon"
+      href="https://dailydigitalskills.online/wp-content/uploads/2024/05/cropped-Frame-42-e1714651500707-180x180.png"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <h1 class="title">
+          DDS Reverse Tunnel Config Generator ( VLESS + WS )
+        </h1>
+        <p class="subtitle">
+          by
+          <a href="https://Dailydigitalskills.online">Daily Digital Skills</a>
+        </p>
+      </div>
+
+      <div class="form-grid" onchange="generateConfig()">
+        <div class="form-group">
+          <label for="domain">IP/Domain</label>
+          <input
+            type="text"
+            id="domain"
+            placeholder="Enter Your Domain or IP"
+            value="10.10.10.10 | mydomain.com "
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="protocol-toggle">Protocol</label>
+          <button id="protocol-toggle" class="none" onclick="toggleProtocol()">
+            None
+          </button>
+        </div>
+
+        <div class="form-group tls-dependent">
+          <label for="sni">SNI</label>
+          <input type="text" id="sni" placeholder="Enter SNI" />
+        </div>
+
+        <div class="form-group tls-dependent">
+          <label for="pubKey">Public Key</label>
+          <input type="text" id="pubKey" placeholder="Enter Public Key" />
+        </div>
+
+        <div class="form-group tls-dependent">
+          <label for="private_Key">Private Key</label>
+          <input type="text" id="private_Key" placeholder="Enter Private Key" />
+        </div>
+
+        <div class="form-group">
+          <label for="path">Path</label>
+          <input type="text" id="path" placeholder="Enter path" value="/dds" />
+        </div>
+
+        <div class="form-group">
+          <label for="iranIncome">Income Port</label>
+          <input
+            type="number"
+            id="iranIncome"
+            placeholder="Enter Tunnel Income Port"
+            value="4040"
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="port">InterConnection Inbound Port</label>
+          <input
+            type="number"
+            id="port"
+            placeholder="Enter InterConnection Inbound Port"
+            value="3030"
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="MainOutbound_port">Main Inbound Port</label>
+          <input
+            type="number"
+            id="MainOutbound_port"
+            placeholder="Main Inbound Port"
+            value="1080"
+          />
+        </div>
+      </div>
+
+      <div class="tabs">
+        <div class="tab-buttons">
+          <button class="tab-button active" data-tab="inbound">Inbound</button>
+          <button class="tab-button" data-tab="outbound">Outbound</button>
+          <button class="tab-button" data-tab="reverse">Reverse</button>
+          <button class="tab-button" data-tab="routing">Routing</button>
+        </div>
+
+        <div class="tab-content active" id="inbound-tab">
+          <div class="config-container">
+            <button
+              class="copy-button"
+              onclick="copyToClipboard('inboundConfig')"
+            >
+              Copy
+            </button>
+            <textarea id="inboundConfig" readonly>Loading...</textarea>
+          </div>
+        </div>
+
+        <div class="tab-content" id="outbound-tab">
+          <div class="config-container">
+            <button
+              class="copy-button"
+              onclick="copyToClipboard('outboundConfig')"
+            >
+              Copy
+            </button>
+            <textarea id="outboundConfig" readonly>Loading...</textarea>
+          </div>
+        </div>
+
+        <div class="tab-content" id="reverse-tab">
+          <div class="config-container">
+            <button class="copy-button" onclick="copyToClipboard('reverse')">
+              Copy
+            </button>
+            <textarea id="reverse" readonly>Loading...</textarea>
+          </div>
+        </div>
+
+        <div class="tab-content" id="routing-tab">
+          <div class="config-container">
+            <button class="copy-button" onclick="copyToClipboard('routing')">
+              Copy
+            </button>
+            <textarea id="routing" readonly>Loading...</textarea>
+          </div>
+        </div>
+      </div>
+
+      <label for="UUID">UUID</label>
+      <div class="uuid-container">
+        <input type="text" id="UUID" readonly />
+        <button class="copy-button-uuid" onclick="copyUUID()">Copy</button>
+      </div>
+      <div class="button-container">
+        <button class="generate-button" onclick="generateConfig()">
+          Generate Config
+        </button>
+        <a
+          href="https://www.youtube.com/@Dailydigitalskills"
+          target="_blank"
+          class="social-button youtube-button"
+        >
+          YouTube
+        </a>
+        <a
+          href="https://t.me/Dailydigitalskills"
+          target="_blank"
+          class="social-button telegram-button"
+        >
+          Telegram
+        </a>
+      </div>
+    </div>
+    <!-- Add this div at the end of the body, before the closing </div> tag -->
+    <div id="telegram-notification" class="notification">
+      <button class="close-button" onclick="closeNotification()">×</button>
+      <div id="tutvideo" style="display: none">
+        <p style="font-weight: 700">
+          ویدئو های آموزشی این ابزار در کانال یوتیوب وجود دارد ، جهت مشاهده کلیک
+          کنید
+        </p>
+        <img
+          src="https://dailydigitalskills.online/wp-content/uploads/2024/09/maxresdefault-1-1024x576.webp"
+        />
+        <a
+          href="https://Youtube.com/@ِDailydigitalskills"
+          target="_blank"
+          class="youtube-button telegram-button"
+          style="margin: 10px 0 10px 0"
+        >
+          مشاهده اموزش در یوتیوب
+        </a>
+        <hr
+          style="width: 70%; border: 1px solid #cccccc6c; margin: 20px auto"
+        />
+      </div>
+      <p style="color: rgb(224, 224, 224)">
+        برای دریافت جدید ترین اخبار ، آموزش ها و ویدئو های آموزشی در کانال های
+        دیلی دیجیتال اسکیلز عضو شو!
+      </p>
+
+      <a
+        href="https://t.me/Dailydigitalskills"
+        target="_blank"
+        class="social-button telegram-button"
+      >
+        Telegram
+      </a>
+      <a
+        href="https://Youtube.com/@Dailydigitalskills"
+        target="_blank"
+        class="youtube-button telegram-button"
+      >
+        YouTube
+      </a>
+    </div>
+    <div></div>
+    <script src="./script.js"></script>
+  </body>
+</html>

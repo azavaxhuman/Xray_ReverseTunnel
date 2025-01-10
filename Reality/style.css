@@ -1,0 +1,362 @@
+
+:root {
+  --primary: #3b82f6;
+  --primary-dark: #1d4ed8;
+  --background: #0f172a;
+  --card-bg: #1e293b;
+  --text: #f8fafc;
+  --text-secondary: #94a3b8;
+  --border: #334155;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+a {
+
+color: aliceblue;
+text-decoration:none
+
+}
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, sans-serif;
+  background-color: var(--background);
+  color: var(--text);
+  line-height: 1.5;
+  padding: 1rem;
+  min-height: 100vh;
+}
+
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 2rem;
+  background-color: var(--card-bg);
+  border-radius: 1rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.title {
+  font-size: 2rem;
+  background: linear-gradient(to right, #3b82f6, #8b5cf6);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  margin-bottom: 0.5rem;
+}
+
+.subtitle {
+  color: var(--text-secondary);
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+label {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--text);
+}
+
+input {
+  padding: 0.75rem;
+  border: 1px solid var(--border);
+  border-radius: 0.5rem;
+  background-color: var(--background);
+  color: var(--text);
+  font-size: 0.875rem;
+  width: 100%;
+}
+
+input:focus {
+  outline: 2px solid var(--primary);
+  outline-offset: -1px;
+}
+
+.tabs {
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 1rem;
+}
+
+.tab-buttons {
+  display: flex;
+  gap: 1rem;
+  overflow-x: auto;
+  padding-bottom: 0.5rem;
+}
+
+.tab-button {
+  padding: 0.5rem 1rem;
+  border: none;
+  background: none;
+  color: var(--text-secondary);
+  cursor: pointer;
+  font-size: 0.875rem;
+  border-bottom: 2px solid transparent;
+  white-space: nowrap;
+}
+
+.tab-button.active {
+  color: var(--primary);
+  border-bottom-color: var(--primary);
+}
+
+.tab-content {
+  display: none;
+  margin-top: 1rem;
+}
+
+.tab-content.active {
+  display: block;
+}
+
+.config-container {
+  position: relative;
+}
+
+.copy-button {
+  position: absolute;
+  top: 1rem;
+  right: 1.5rem;
+  padding: 0.5rem;
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 0.25rem;
+  color: var(--text);
+  cursor: pointer;
+}
+
+.copy-button:hover {
+  background: var(--border);
+}
+
+textarea {
+  width: 100%;
+  min-height: 300px;
+  padding: 1rem;
+  background-color: var(--background);
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: 0.5rem;
+  font-family: monospace;
+  font-size: 0.875rem;
+  resize: vertical;
+  margin-bottom: 1rem;
+}
+
+.generate-button {
+  width: 100%;
+  padding: 0.75rem;
+  background: linear-gradient(to right, var(--primary), #8b5cf6);
+  color: white;
+  border: none;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.generate-button:hover {
+  opacity: 0.9;
+}
+
+@media (max-width: 640px) {
+  .container {
+    padding: 1rem;
+  }
+}
+.uuid-container {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.copy-button-uuid {
+  position: relative;
+  top: 0;
+  right: 0;
+  padding: 0.5rem;
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 0.25rem;
+  color: var(--text);
+  cursor: pointer;
+}
+
+.copy-button-uuid:hover {
+  background: var(--border);
+}
+.social-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.social-button {
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 0.5rem;
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+  text-decoration: none;
+  transition: opacity 0.2s;
+}
+
+.youtube-button {
+  background: #ff0000; /* YouTube red */
+}
+
+.youtube-button:hover {
+  opacity: 0.9;
+}
+
+.telegram-button {
+  background: #0088cc; /* Telegram blue */
+}
+
+.telegram-button:hover {
+  opacity: 0.9;
+}
+.button-container {
+  display: flex;
+  align-items: center;
+  gap: 1rem; /* فاصله بین دکمه‌ها */
+  margin-top: 1rem; /* فاصله از بالای دکمه‌ها */
+}
+
+.generate-button {
+  flex: 1; /* دکمه Generate تمام عرض را می‌گیرد */
+  padding: 0.75rem;
+  background: linear-gradient(to right, var(--primary), #8b5cf6);
+  color: white;
+  border: none;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.generate-button:hover {
+  opacity: 0.9;
+}
+
+.social-button {
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 0.5rem;
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+  text-decoration: none;
+  transition: opacity 0.2s;
+}
+
+.youtube-button {
+  background: #ff0000; /* YouTube red */
+}
+
+.youtube-button:hover {
+  opacity: 0.9;
+}
+
+.telegram-button {
+  background: #0088cc; /* Telegram blue */
+}
+
+.telegram-button:hover {
+  opacity: 0.9;
+}
+.notification {
+  direction: rtl;
+  position: fixed;
+  bottom: 1rem;
+  right: -300px; /* Initially hidden */
+  width: 250px;
+  padding: 1rem;
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  color: var(--text);
+  transition: right 0.5s ease-in-out;
+  z-index: 1000;
+}
+
+.notification p {
+  margin: 1rem 1rem 0.5rem 1rem;
+  font-size: 0.875rem;
+  text-align: justify;
+}
+
+.notification .social-button {
+  display: block;
+  text-align: center;
+  padding: 0.5rem;
+  background: #0088cc; /* Telegram blue */
+  color: white;
+  border-radius: 0.25rem;
+  text-decoration: none;
+}
+.notification .youtube-button {
+  margin: 1rem 0 0 0 ;
+  display: block;
+  text-align: center;
+  padding: 0.5rem;
+  background: #cc000a; /* Telegram blue */
+  color: white;
+  border-radius: 0.25rem;
+  text-decoration: none;
+}
+.notification .social-button:hover {
+  opacity: 0.9;
+}
+
+.notification .close-button {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  background: none;
+  border: none;
+  color: var(--text);
+  font-size: 1.25rem;
+  cursor: pointer;
+}
+
+.notification .close-button:hover {
+  color: var(--primary);
+}
+.notification img {
+border-radius: 0.5rem;
+width: 100%;
+
+
+}
+@media (max-width: 640px) {
+  .notification {
+    top: 1rem;
+    bottom: auto;
+    right: 1rem;
+  }
+
+}
