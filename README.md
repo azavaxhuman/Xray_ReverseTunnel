@@ -21,15 +21,16 @@
 
 این پروژه شامل فایل‌های HTML، CSS و JavaScript است که می‌توانید به صورت آفلاین نیز از آن‌ها استفاده کنید. برای استفاده از ابزارهای موجود در این پروژه، کافی است فایل‌های HTML را در مرورگر خود باز کنید:
 
-- [تولید UUID](./Key_Generator/index.html)
-- [تنظیمات تانل معکوس (Reality)](./Reality/index.html)
-- [تنظیمات تانل معکوس (VLESS-WS)](./VLESS-WS/index.html)
+- [صفحه اصلی](https://azavaxhuman.github.io/Xray_ReverseTunnel/)
+- [تولید UUID](https://azavaxhuman.github.io/Xray_ReverseTunnel/Key-ID_Generator/index.html)
+- [تنظیمات تانل معکوس (Reality)](https://azavaxhuman.github.io/Xray_ReverseTunnel/Reality/index.html)
+- [تنظیمات تانل معکوس (VLESS-WS)](https://azavaxhuman.github.io/Xray_ReverseTunnel/VLESS-WS/index.html)
 
 ## ویدئوی آموزشی
 
 برای مشاهده ویدئوی آموزشی این پروژه، به لینک زیر مراجعه کنید:
-
-[ویدئوی آموزشی در یوتیوب](https://www.youtube.com/yourvideo)
+به زودی
+[ویدئوی آموزشی در یوتیوب](https://www.youtube.com/@Dailydigitalskills)
 
 ## لینک‌های مفید
 

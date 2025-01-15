@@ -1,4 +1,5 @@
 # Easy Reverse Tunnel with Xray Core
+
 [Read this in Persian](./README.md)
 ![](./Assests/image.png)
 <br>
@@ -21,15 +22,16 @@ This project includes tools for generating UUIDs and configurations for two reve
 
 This project includes HTML, CSS, and JavaScript files that you can use offline. To use the tools available in this project, simply open the HTML files in your browser:
 
-- [UUID Generator](./Key_Generator/index.html)
-- [Reverse Tunnel Configurations (Reality)](./Reality/index.html)
-- [Reverse Tunnel Configurations (VLESS-WS)](./VLESS-WS/index.html)
+- [Home Page](https://azavaxhuman.github.io/Xray_ReverseTunnel/)
+- [UUID Generator](https://azavaxhuman.github.io/Xray_ReverseTunnel/Key-ID_Generator/index.html)
+- [Reverse Tunnel Configurations (Reality)](https://azavaxhuman.github.io/Xray_ReverseTunnel/Reality/index.html)
+- [Reverse Tunnel Configurations (VLESS-WS)](https://azavaxhuman.github.io/Xray_ReverseTunnel/VLESS-WS/index.html)
 
 ## Video Tutorial
 
 To watch the video tutorial for this project, visit the following link:
-
-[Video Tutorial on YouTube](https://www.youtube.com/yourvideo)
+Coming soon !
+[Video Tutorial on YouTube](https://www.youtube.com/@Dailydigitalskills)
 
 ## Useful Links
 
