@@ -6,8 +6,10 @@
     <title>DDS Xray Key Generator</title>
     <style>
       body {
-        font-family: Arial, sans-serif;
-        background-color: #1a1a2e;
+        font-family: -apple-system, BlinkMacSystemFont, 'Vazirmatn', 'Inter', 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB',
+          'Microsoft YaHei', 'Helvetica Neue', Helvetica, Arial, sans-serif, 'Apple Color Emoji',
+          'Segoe UI Emoji', 'Segoe UI Symbol';
+        background-color: #0f172a;
         color: #ffffff;
         margin: 0;
         display: flex;
@@ -16,162 +18,226 @@
         justify-content: center;
         height: 100vh;
       }
-
+      button, input, optgroup, select, textarea {
+        font-family: inherit;
+      }
+      textarea:focus, input:focus {
+        outline: none;
+      }
       .container {
         text-align: center;
-        padding: 20px;
+        height: 100%;
+        overflow: auto;
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: center;
+        align-items: center;
       }
-
       h1 {
         margin-bottom: 10px;
       }
-
-      h2 {
-        font-weight: normal;
-        margin-bottom: 30px;
-      }
-
       .field {
         margin-bottom: 20px;
         text-align: left;
       }
-
       .field label {
         display: block;
         font-size: 14px;
         margin-bottom: 5px;
       }
-
       .field input {
-        width: 300px;
+        width: 340px;
         padding: 10px;
-        border-radius: 5px;
-        border: none;
-        background-color: #2b2b3b;
+        border-radius: 0.5rem;
+        border: 1px solid #334155;
+        background-color: #0f172a;
         color: #ffffff;
         font-size: 14px;
+        outline: solid 2px transparent;
+        outline-offset: calc(2px * -1);
+        transition: all 0.3s;
       }
-
+      .field input:focus {
+        outline-color: #328af1;
+      }
+      .field input::placeholder,
+      .field input::-webkit-input-placeholder {
+        color: #475569;
+      }
       .copy-button {
-        background-color: #007bff;
+        background-color: #3b82f6;
         color: #ffffff;
-        padding: 10px 15px;
+        padding: 8px 14px;
         margin-left: 10px;
         border: none;
-        border-radius: 5px;
+        border-radius: 0.5rem;
         cursor: pointer;
-        font-size: 14px;
+        font-size: 16px;
       }
-
       .copy-button:hover {
-        background-color: #0056b3;
+        background-color: #2563eb;
       }
-
       .buttons {
         margin-top: 20px;
       }
-
       .buttons a {
         text-decoration: none;
         color: #ffffff;
         padding: 10px 20px;
-        border-radius: 5px;
-        font-weight: bold;
+        border-radius: 0.5rem;
+        font-weight: normal;
         margin: 0 10px;
         display: inline-block;
       }
-
       .buttons .youtube {
-        background-color: #ff0000;
+        background-color: #ff0033;
       }
-
       .buttons .telegram {
-        background-color: #0088cc;
+        background-color: #179cde;
       }
       .buttons .menu {
-        background-color: #3c0074;
+        background-color: #8b5cf6;
       }
-      .buttons a:hover {
-        opacity: 0.8;
+      .buttons .menu:hover {
+        background-color: #7c3aed;
+      }
+      .buttons .telegram:hover {
+        background-color: #1789c1;
+      }
+      .buttons .youtube:hover {
+        background-color: #d1012a;
+      }
+      .tr-layout {
+        display: flex;
+        flex: auto;
+        flex-direction: column;
+        min-height: 0;
+      }
+      .tr-layout-content {
+        flex: auto;
+        min-height: 0;
+      }
+      #app {
+        height: 100%;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+      }
+      .tr-main-ct {
+        animation: charge 0.5s both;
+        background-color: #1e293b;
+        border-radius: 2rem;
+        padding: 3rem;
+        transition: all 0.2s;
+        margin: 3rem 0px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      .tr-title {
+        font-size: 32px;
+        background: linear-gradient(to right, #3b82f6, #a855f7);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+      }
+      .tr-description {
+        font-size: 16px;
+        font-weight: normal;
+        margin-block-start: 8px;
+        margin-block-end: 30px;
       }
     </style>
   </head>
   <body>
-    <div class="container">
-      <h1>DDS Key Generator</h1>
-      <h2>By: Daily Digital Skills (V 1.0)</h2>
-
-      <div class="field">
-        <label for="uuid">UUID:</label>
-        <input type="text" placeholder="UUID" id="uuid" readonly />
-        <button class="copy-button" onclick="copyToClipboard('uuid')">
-          Copy
-        </button>
-      </div>
-
-      <div class="field">
-        <label for="shortids">ShortIds:</label>
-        <input type="text" placeholder="ShortIds" id="shortids" readonly />
-        <button class="copy-button" onclick="copyToClipboard('shortids')">
-          Copy
-        </button>
-      </div>
-
-      <div class="field">
-        <label for="privateKey">Private Key:</label>
-        <input type="text" placeholder="PrivateKey" id="privateKey" readonly />
-        <button class="copy-button" onclick="copyToClipboard('privateKey')">
-          Copy
-        </button>
-      </div>
-
-      <div class="field">
-        <label for="publicKey">Public Key:</label>
-        <input type="text" placeholder="PublicKey" id="publicKey" readonly />
-        <button class="copy-button" onclick="copyToClipboard('publicKey')">
-          Copy
-        </button>
-      </div>
-
-      <div class="field">
-        <label for="randomString">Password:</label>
-        <input
-          type="text"
-          placeholder="Random String"
-          id="randomString"
-          readonly
-        />
-        <button class="copy-button" onclick="copyToClipboard('randomString')">
-          Copy
-        </button>
-      </div>
-
-      <button class="copy-button" onclick="generateAll()">Generate</button>
-      <hr style="width: 80%; border: 1px solid #cccccc6c; margin: 20px auto" />
-
-      <div class="buttons">
-        <a
-          href="https://www.youtube.com/@Dailydigitalskills"
-          class="youtube"
-          target="_blank"
-        >
-          YouTube
-        </a>
-        <a
-          href="https://t.me/DAILYDIGITALSKILLS"
-          class="telegram"
-          target="_blank"
-        >
-          Telegram
-        </a>
-        <a
-          href="https://azavaxhuman.github.io/Xray_ReverseTunnel/"
-          class="menu"
-        >
-          Back To Main Menu
-        </a>
-      </div>
-    </div>
+    <section class="tr-layout" id="app">
+      <main class="tr-layout-content">
+        <div class="container">
+          <div class="tr-main-ct">
+            <h1 class="tr-title">DDS Key Generator</h1>
+            <h2 class="tr-description">by Daily Digital Skills (v1.0)</h2>
+      
+            <div class="field">
+              <label for="uuid">UUID:</label>
+              <input type="text" placeholder="UUID" id="uuid" readonly />
+              <button class="copy-button" onclick="copyToClipboard('uuid')">
+                Copy
+              </button>
+            </div>
+      
+            <div class="field">
+              <label for="shortids">ShortIds:</label>
+              <input type="text" placeholder="ShortIds" id="shortids" readonly />
+              <button class="copy-button" onclick="copyToClipboard('shortids')">
+                Copy
+              </button>
+            </div>
+      
+            <div class="field">
+              <label for="privateKey">Private Key:</label>
+              <input type="text" placeholder="PrivateKey" id="privateKey" readonly />
+              <button class="copy-button" onclick="copyToClipboard('privateKey')">
+                Copy
+              </button>
+            </div>
+      
+            <div class="field">
+              <label for="publicKey">Public Key:</label>
+              <input type="text" placeholder="PublicKey" id="publicKey" readonly />
+              <button class="copy-button" onclick="copyToClipboard('publicKey')">
+                Copy
+              </button>
+            </div>
+      
+            <div class="field">
+              <label for="randomString">Password:</label>
+              <input
+                type="text"
+                placeholder="Random String"
+                id="randomString"
+                readonly
+              />
+              <button class="copy-button" onclick="copyToClipboard('randomString')">
+                Copy
+              </button>
+            </div>
+      
+            <button class="copy-button" onclick="generateAll()">Generate</button>
+            <hr style="width: 94%; height: 1px; border: none; background-color: #cccccc6c; margin: 20px auto" />
+      
+            <div class="buttons">
+              <a
+                rel="noopener noreferrer"
+                href="https://www.youtube.com/@Dailydigitalskills"
+                class="youtube"
+                target="_blank"
+              >
+                YouTube
+              </a>
+              <a
+                rel="noopener noreferrer"
+                href="https://t.me/DAILYDIGITALSKILLS"
+                class="telegram"
+                target="_blank"
+              >
+                Telegram
+              </a>
+              <a
+                href="https://azavaxhuman.github.io/Xray_ReverseTunnel/"
+                class="menu"
+              >
+                Back To Main Menu
+              </a>
+            </div>
+          </div>
+        </div>
+      </main>
+    </section>
 
     <script>
       function generateUUID() {

@@ -14,20 +14,50 @@
   margin: 0;
   padding: 0;
 }
+
 a {
-
-color: aliceblue;
-text-decoration:none
-
+  color: aliceblue;
+  text-decoration:none
 }
+
+@font-face {
+  font-display: swap;
+  font-family: 'Vazirmatn';
+  font-style: normal;
+  font-weight: 400;
+  src: url('../Assests/Vazirmatn-UI-NL-Regular.woff2') format('woff2');
+  unicode-range: U+0600-06FF, U+200C-200E, U+2010-2011, U+204F, U+2E41, U+FB50-FDFF, U+FE80-FEFC, U+0030-0039;
+}
+
 body {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-    "Helvetica Neue", Arial, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, 'Vazirmatn', 'Inter', 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB',
+    'Microsoft YaHei', 'Helvetica Neue', Helvetica, Arial, sans-serif, 'Apple Color Emoji',
+    'Segoe UI Emoji', 'Segoe UI Symbol';
   background-color: var(--background);
   color: var(--text);
   line-height: 1.5;
   padding: 1rem;
   min-height: 100vh;
+}
+
+button, input, optgroup, select, textarea {
+  font-family: inherit;
+}
+
+textarea, input, select {
+  vertical-align: bottom;
+}
+
+textarea::-webkit-scrollbar {
+  width: 0.5rem;
+}
+textarea::-webkit-scrollbar-thumb {
+  background-color: #64748b;
+  border-radius: 9999px;
+  cursor:default;
+}
+textarea::-webkit-scrollbar-track {
+  background-color: #334155;
 }
 
 .container {
@@ -46,7 +76,7 @@ body {
 
 .title {
   font-size: 2rem;
-  background: linear-gradient(to right, #3b82f6, #8b5cf6);
+  background: linear-gradient(to right, #3b82f6, #a855f7);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -76,19 +106,20 @@ label {
   color: var(--text);
 }
 
-input {
-  padding: 0.75rem;
+.tra-input {
+  padding-inline: 0.75rem;
   border: 1px solid var(--border);
   border-radius: 0.5rem;
   background-color: var(--background);
   color: var(--text);
-  font-size: 0.875rem;
   width: 100%;
+  transition: all 0.3s;
+  outline: solid 2px transparent;
+  outline-offset: calc(2px * -1);
 }
 
-input:focus {
-  outline: 2px solid var(--primary);
-  outline-offset: -1px;
+.tra-input:focus-within {
+  outline-color:var(--primary);
 }
 
 .tabs {
@@ -129,7 +160,18 @@ input:focus {
 }
 
 .config-container {
+  border-radius: 0.5rem;
+  border: solid 1px #334155;
+  overflow: hidden;
+  margin-bottom: 1rem;
   position: relative;
+  transition: all 0.3s;
+  outline: solid 2px transparent;
+  outline-offset: calc(2px * -1);
+}
+
+.config-container:focus-within {
+  outline-color:var(--primary);
 }
 
 .copy-button {
@@ -154,28 +196,11 @@ textarea {
   padding: 1rem;
   background-color: var(--background);
   color: var(--text);
-  border: 1px solid var(--border);
-  border-radius: 0.5rem;
   font-family: monospace;
   font-size: 0.875rem;
   resize: vertical;
-  margin-bottom: 1rem;
-}
-
-.generate-button {
-  width: 100%;
-  padding: 0.75rem;
-  background: linear-gradient(to right, var(--primary), #8b5cf6);
-  color: white;
-  border: none;
-  border-radius: 0.5rem;
-  font-size: 1rem;
-  cursor: pointer;
-  transition: opacity 0.2s;
-}
-
-.generate-button:hover {
-  opacity: 0.9;
+  border: 0;
+  outline: 0;
 }
 
 @media (max-width: 640px) {
@@ -183,6 +208,7 @@ textarea {
     padding: 1rem;
   }
 }
+
 .uuid-container {
   display: flex;
   align-items: center;
@@ -205,6 +231,7 @@ textarea {
 .copy-button-uuid:hover {
   background: var(--border);
 }
+
 .social-buttons {
   display: flex;
   justify-content: center;
@@ -224,74 +251,50 @@ textarea {
 }
 
 .youtube-button {
-  background: #ff0000; /* YouTube red */
+  background: #ff0033;
 }
 
 .youtube-button:hover {
-  opacity: 0.9;
+  background: #d1012a;
 }
 
 .telegram-button {
-  background: #0088cc; /* Telegram blue */
+  background: #179cde;
 }
 
 .telegram-button:hover {
-  opacity: 0.9;
+  background: #1789c1;
 }
+
 .button-container {
   display: flex;
   align-items: center;
-  gap: 1rem; /* فاصله بین دکمه‌ها */
-  margin-top: 1rem; /* فاصله از بالای دکمه‌ها */
+  gap: 1rem;
+  margin-top: 1rem;
 }
 
 .generate-button {
-  flex: 1; /* دکمه Generate تمام عرض را می‌گیرد */
+  flex: 1;
   padding: 0.75rem;
-  background: linear-gradient(to right, var(--primary), #8b5cf6);
+  background: linear-gradient(to right, var(--primary), #a855f7);
   color: white;
   border: none;
   border-radius: 0.5rem;
   font-size: 1rem;
   cursor: pointer;
-  transition: opacity 0.2s;
+  transition: opacity 0.3s;
+  height: 48px;
 }
 
 .generate-button:hover {
   opacity: 0.9;
 }
 
-.social-button {
-  padding: 0.75rem 1.5rem;
-  border: none;
-  border-radius: 0.5rem;
-  color: white;
-  font-size: 1rem;
-  cursor: pointer;
-  text-decoration: none;
-  transition: opacity 0.2s;
-}
-
-.youtube-button {
-  background: #ff0000; /* YouTube red */
-}
-
-.youtube-button:hover {
-  opacity: 0.9;
-}
-
-.telegram-button {
-  background: #0088cc; /* Telegram blue */
-}
-
-.telegram-button:hover {
-  opacity: 0.9;
-}
 .notification {
   direction: rtl;
   position: fixed;
   bottom: 1rem;
-  right: -300px; /* Initially hidden */
+  right: -300px;
   width: 250px;
   padding: 1rem;
   background: var(--card-bg);
@@ -304,7 +307,7 @@ textarea {
 }
 
 .notification p {
-  margin: 1rem 1rem 0.5rem 1rem;
+  margin-block: 1rem;
   font-size: 0.875rem;
   text-align: justify;
 }
@@ -313,23 +316,29 @@ textarea {
   display: block;
   text-align: center;
   padding: 0.5rem;
-  background: #0088cc; /* Telegram blue */
+  background: #179cde;
   color: white;
   border-radius: 0.25rem;
   text-decoration: none;
 }
+
+.notification .social-button:hover {
+  background: #1789c1;
+}
+
 .notification .youtube-button {
   margin: 1rem 0 0 0 ;
   display: block;
   text-align: center;
   padding: 0.5rem;
-  background: #cc000a; /* Telegram blue */
+  background: #ff0033;
   color: white;
   border-radius: 0.25rem;
   text-decoration: none;
 }
-.notification .social-button:hover {
-  opacity: 0.9;
+
+.notification .youtube-button:hover {
+  background: #d1012a;
 }
 
 .notification .close-button {
@@ -346,12 +355,12 @@ textarea {
 .notification .close-button:hover {
   color: var(--primary);
 }
+
 .notification img {
-border-radius: 0.5rem;
-width: 100%;
-
-
+  border-radius: 0.5rem;
+  width: 100%;
 }
+
 @media (max-width: 640px) {
   .notification {
     top: 1rem;
@@ -359,4 +368,153 @@ width: 100%;
     right: 1rem;
   }
 
+}
+
+.tr-input-number {
+  box-sizing: border-box;
+  margin: 0;
+  color: var(--text);
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  background-color: var(--background);
+  border-radius: 0.5rem;
+  transition: all 0.2s;
+  border: 1px solid var(--border);
+  width: 100%;
+  outline: solid 2px transparent;
+  outline-offset: calc(2px * -1);
+}
+
+.tra-input::-webkit-input-placeholder,
+.tr-input-number input::-webkit-input-placeholder,
+.tra-input::placeholder,
+.tr-input-number input::placeholder {
+  color: #475569;
+}
+
+.tr-input-number:focus-within {
+  outline-color: var(--primary);
+}
+
+.tr-input-number-inner {
+  display: flex;
+  justify-content: space-between;
+  column-gap: 0.25rem;
+  width: 100%;
+  align-items: center;
+}
+
+.tr-input-number-input-wrap {
+  width: 100%;
+  height: 100%;
+  padding-inline: 0.75rem;
+}
+
+.tr-input-number-input {
+  padding: 0;
+  text-align: start;
+  background-color: transparent;
+  border: 0;
+  outline: 0;
+  -webkit-appearance: textfield;
+  -moz-appearance: textfield;
+  appearance: textfield;
+  color: inherit;
+  font-size: 1rem;
+  width: 100%;
+  height: 2.5rem;
+}
+
+.tr-input-number-input::-webkit-outer-spin-button,
+.tr-input-number-input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  margin: 0;
+}
+
+.tr-input-number-handler-wrap {
+  display: flex;
+  transition: opacity 0.2s linear 0.2s;
+  border-style: solid;
+  border-color: var(--border);
+  border-width: 0;
+  border-inline-start-width: 1px;
+}
+
+.tr-input-number-handler {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 2.5rem;
+  width: 2.5rem;
+  background: #020617;
+}
+
+.rounded-se-lg {
+  border-start-end-radius: 0rem;
+}
+
+.rounded-ee-lg {
+  border-start-end-radius: 0.5rem;
+  border-end-end-radius: 0.5rem;
+}
+
+.tr-input-number-handler:hover,
+.tr-input-number-handler:active {
+  background: #0f172a;
+}
+
+.tr-input-number-handler-up {
+  border-left: solid 1px var(--border);
+}
+
+.tr-input-number-handler-up,
+.tr-input-number-handler-down {
+  cursor: pointer;
+}
+
+.tr-input-number-handler-down:hover .tr-input-number-handler-down-inner,
+.tr-input-number-handler-up:hover .tr-input-number-handler-up-inner {
+  color: #fff;
+}
+
+.tr-input-number-handler-down-disabled,
+.tr-input-number-handler-up-disabled {
+  cursor: not-allowed;
+}
+
+.tr-input-number-handler-down-disabled .tr-input-number-handler-down-inner,
+.tr-input-number-handler-up-disabled .tr-input-number-handler-up-inner {
+  color: rgba(255, 255, 255, 0.3);
+}
+
+.tr-input-number-handler-down-disabled:hover .tr-input-number-handler-down-inner,
+.tr-input-number-handler-up-disabled:hover .tr-input-number-handler-up-inner {
+  color: rgba(255, 255, 255, 0.25);
+}
+
+.tricon > * {
+  line-height: 1;
+}
+
+.tr-input-number-handler-up-inner,
+.tr-input-number-handler-down-inner {
+  display: inline-flex;
+  align-items: center;
+  color: #fff;
+  font-style: normal;
+  line-height: 0;
+  text-align: center;
+  text-transform: none;
+  vertical-align: -0.125em;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transition: all 0.2s linear;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
