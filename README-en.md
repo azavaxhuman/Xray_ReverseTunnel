@@ -1,6 +1,10 @@
 # Easy Reverse Tunnel with Xray Core
 
 [Read this in Persian](./README.md)
+
+[![Demo](https://img.shields.io/badge/demo-live-1ebf37.svg)](https://azavaxhuman.github.io/Xray_ReverseTunnel/)
+[![Views](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2Fazavaxhuman%2FXray_ReverseTunnel&count_bg=%23007ec6&title_bg=%23555555&icon=&icon_color=%23E7E7E7&title=Total+View&edge_flat=false)](#)
+
 ![](./Assests/image.png)
 <br>
 ![](./Assests/models.png)
@@ -20,18 +24,17 @@ This project includes tools for generating UUIDs and configurations for two reve
 
 ## Usage
 
-This project includes HTML, CSS, and JavaScript files that you can use offline. To use the tools available in this project, simply open the HTML files in your browser:
+This project includes HTML, CSS, and JavaScript files that you can use offline. To use the tools available in this project, simply open the links in your browser:
 
 - [Home Page](https://azavaxhuman.github.io/Xray_ReverseTunnel/)
-- [UUID Generator](https://azavaxhuman.github.io/Xray_ReverseTunnel/Key-ID_Generator/index.html)
-- [Reverse Tunnel Configurations (Reality)](https://azavaxhuman.github.io/Xray_ReverseTunnel/Reality/index.html)
-- [Reverse Tunnel Configurations (VLESS-WS)](https://azavaxhuman.github.io/Xray_ReverseTunnel/VLESS-WS/index.html)
+- [UUID Generator](https://azavaxhuman.github.io/Xray_ReverseTunnel/Key-ID_Generator/)
+- [Reverse Tunnel Configurations (Reality)](https://azavaxhuman.github.io/Xray_ReverseTunnel/Reality/)
+- [Reverse Tunnel Configurations (VLESS-WS)](https://azavaxhuman.github.io/Xray_ReverseTunnel/VLESS-WS/)
 
 ## Video Tutorial
 
 To watch the video tutorial for this project, visit the following link:
-Coming soon !
-[Video Tutorial on YouTube](https://www.youtube.com/@Dailydigitalskills)
+[![Video Tutorial on YouTube](https://img.youtube.com/vi/rltmObyGL4s/0.jpg)](https://youtu.be/rltmObyGL4s)
 
 ## Useful Links
 

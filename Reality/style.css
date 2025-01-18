@@ -75,11 +75,13 @@ textarea::-webkit-scrollbar-track {
 
 .title {
   font-size: 2rem;
-  background: linear-gradient(to right, #3b82f6, #a855f7);
+  background: linear-gradient(to right, #3b82f6, #a855f7, #3b82f6);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
   margin-bottom: 0.5rem;
+  animation: anime 6s linear infinite;
+  background-size: 200%;
 }
 
 .subtitle {
@@ -277,13 +279,24 @@ textarea {
   flex: 1;
   height: 3rem;
   padding-inline: 1.5rem;
-  background: linear-gradient(to right, var(--primary), #a855f7);
+  background: linear-gradient(to right, var(--primary), #a855f7, var(--primary));
   color: white;
   border: none;
   border-radius: 0.5rem;
   font-size: 1rem;
   cursor: pointer;
   transition: opacity 0.3s;
+  background-size: 200%;
+  animation: anime 6s linear infinite;
+}
+
+@keyframes anime {
+  0% {
+      background-position: 0% 100%;
+  }
+  100% {
+      background-position: 200% 0%;
+  }
 }
 
 .generate-button:hover {

@@ -2,6 +2,9 @@
 
 [Read this in English](./README-en.md)
 
+[![Demo](https://img.shields.io/badge/demo-live-1ebf37.svg)](https://azavaxhuman.github.io/Xray_ReverseTunnel/)
+[![Views](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2Fazavaxhuman%2FXray_ReverseTunnel&count_bg=%23007ec6&title_bg=%23555555&icon=&icon_color=%23E7E7E7&title=Total+View&edge_flat=false)](#)
+
 ![](./Assests/image.png)
 <br>
 ![](./Assests/models.png)
@@ -22,18 +25,17 @@
 
 ## 🚀 استفاده
 
-این پروژه شامل فایل‌های HTML، CSS و JavaScript است که می‌توانید به صورت آفلاین نیز از آن‌ها استفاده کنید. برای استفاده از ابزارهای موجود در این پروژه، کافی است فایل‌های HTML را در مرورگر خود باز کنید:
+این پروژه شامل فایل‌های HTML، CSS و JavaScript است که می‌توانید به صورت آفلاین نیز از آن‌ها استفاده کنید. برای استفاده از ابزارهای موجود در این پروژه، کافی است لینک های زیر را در مرورگر خود باز کنید:
 
 - [صفحه اصلی](https://azavaxhuman.github.io/Xray_ReverseTunnel/)
-- [تولید UUID](https://azavaxhuman.github.io/Xray_ReverseTunnel/Key-ID_Generator/index.html)
-- [تنظیمات تانل معکوس (Reality)](https://azavaxhuman.github.io/Xray_ReverseTunnel/Reality/index.html)
-- [تنظیمات تانل معکوس (VLESS-WS)](https://azavaxhuman.github.io/Xray_ReverseTunnel/VLESS-WS/index.html)
+- [تولید UUID](https://azavaxhuman.github.io/Xray_ReverseTunnel/Key-ID_Generator/)
+- [تنظیمات تانل معکوس (Reality)](https://azavaxhuman.github.io/Xray_ReverseTunnel/Reality/)
+- [تنظیمات تانل معکوس (VLESS-WS)](https://azavaxhuman.github.io/Xray_ReverseTunnel/VLESS-WS/)
 
 ## 🎥 ویدئوی آموزشی
 
 برای مشاهده ویدئوی آموزشی این پروژه، به لینک زیر مراجعه کنید:
-به زودی
-[ویدئوی آموزشی در یوتیوب](https://www.youtube.com/@Dailydigitalskills)
+[![Video Tutorial on YouTube](https://img.youtube.com/vi/rltmObyGL4s/0.jpg)](https://youtu.be/rltmObyGL4s)
 
 ## 🔗 لینک‌های مفید
 
