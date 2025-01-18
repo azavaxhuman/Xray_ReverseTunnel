@@ -239,7 +239,8 @@ textarea {
 }
 
 .social-button {
-  padding: 0.75rem 1.5rem;
+  height: 3rem;
+  padding-inline: 1.5rem;
   border: none;
   border-radius: 0.5rem;
   color: white;
@@ -247,6 +248,7 @@ textarea {
   cursor: pointer;
   text-decoration: none;
   transition: opacity 0.2s;
+  align-content: center;
 }
 
 .youtube-button {
@@ -269,12 +271,12 @@ textarea {
   display: flex;
   align-items: center;
   gap: 1rem;
-  margin-top: 1rem;
 }
 
 .generate-button {
   flex: 1;
-  padding: 0.75rem;
+  height: 3rem;
+  padding-inline: 1.5rem;
   background: linear-gradient(to right, var(--primary), #a855f7);
   color: white;
   border: none;
@@ -310,7 +312,7 @@ textarea {
   text-align: justify;
 }
 
-.notification .social-button {
+.notification .telegram-button {
   display: block;
   text-align: center;
   padding: 0.5rem;
@@ -320,12 +322,12 @@ textarea {
   text-decoration: none;
 }
 
-.notification .social-button:hover {
+.notification .telegram-button:hover {
   background: #1789c1;
 }
 
 .notification .youtube-button {
-  margin: 1rem 0 0 0 ;
+  margin-top: 1rem;
   display: block;
   text-align: center;
   padding: 0.5rem;
@@ -373,11 +375,11 @@ textarea {
   background-color: #334155;
   color: var(--text);
   transition: all 0.3s;
-  height: 44px;
-  width: 44px;
+  height: 3rem;
   align-items: center;
   display: inline-flex;
   justify-content: center;
+  padding-inline: 1rem;
 }
 
 .return-button:hover {

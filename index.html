@@ -77,11 +77,11 @@
         margin: 0 0 2rem 0;
         transition: transform 0.3s ease;
       }
-      .card img#key:hover {
+      .card .key:hover {
         transform: rotate(10deg);
         transition: transform 0.3s ease;
       }
-      .card img#tunnel:hover {
+      .card .tunnel:hover {
         transform: translateY(-5px);
         transition: transform 0.3s ease;
       }
@@ -123,15 +123,15 @@
     <h1><a href="#" id="title">DDS XRAY REVERSE TUNNEL</a></h1>
     <div class="cards" id="cards_id">
       <div class="card" onclick="navigateTo('uuid')">
-        <img id="key" src="/Xray_ReverseTunnel/Assests/key.svg" />
+        <img alt="key" class="key" src="/Xray_ReverseTunnel/Assests/key.svg" />
         <span>KEY | UUID GENERATOR</span>
       </div>
       <div class="card" onclick="navigateTo('reality')">
-        <img id="tunnel" src="/Xray_ReverseTunnel/Assests/tunnel.svg" />
+        <img alt="tunnel" class="tunnel" src="/Xray_ReverseTunnel/Assests/tunnel.svg" />
         <span>REVERSE TUNNEL (REALITY)</span>
       </div>
       <div class="card" onclick="navigateTo('vless')">
-        <img id="tunnel" src="/Xray_ReverseTunnel/Assests/tunnel.svg" />
+        <img alt="tunnel" class="tunnel" src="/Xray_ReverseTunnel/Assests/tunnel.svg" />
         <span>REVERSE TUNNEL (VLESS + WS)</span>
       </div>
     </div>
@@ -165,13 +165,13 @@
       function navigateTo(destination) {
         switch (destination) {
           case "uuid":
-            window.location.href = "./Key-ID_Generator/index.html";
+            window.location.href = "./Key-ID_Generator/";
             break;
           case "reality":
-            window.location.href = "./Reality/index.html";
+            window.location.href = "./Reality/";
             break;
           case "vless":
-            window.location.href = "./VLESS-WS/index.html";
+            window.location.href = "./VLESS-WS/";
             break;
           default:
             console.error("Unknown destination:", destination);
