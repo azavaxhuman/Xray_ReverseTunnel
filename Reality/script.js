@@ -75,128 +75,128 @@ function generateConfig() {
   const ip = document.getElementById("domain").value || "127.0.0.1";
   const MainInbound_port = document.getElementById("MainOutbound_port").value || "1080";
   const inboundConfig = `
-{
-  "tag": "inbound-${incomePort}",
-  "listen": "0.0.0.0",
-  "port": ${incomePort},
-  "protocol": "dokodemo-door",
-  "settings": {
-    "address": "127.0.0.1",
-    "port": ${MainInbound_port},
-    "network": ["tcp", "udp"],
-    "followRedirect": false
-  },
-  "streamSettings": null,
-  "sniffing": {
-    "enabled": false,
-    "destOverride": ["http", "tls", "quic", "fakedns"],
-    "metadataOnly": false,
-    "routeOnly": false
-  }
-},
-{
-  "tag": "VLESS + TCP + REALITY + ${port}",
-  "listen": "0.0.0.0",
-  "port": ${port},
-  "protocol": "vless",
-  "settings": {
-    "clients": [],
-    "decryption": "none"
-  },
-  "streamSettings": {
-    "network": "tcp",
-    "tcpSettings": {},
-    "security": "reality",
-    "realitySettings": {
-      "show": false,
-      "dest": "${sni}:443",
-      "xver": 0,
-      "serverNames": ["${sni}", "www.${sni}"],
-      "privateKey": "${privateKey}",
-      "publicKey": "${publicKey}",
-      "shortIds": ["${shortIds}"]
-    }
-  },
-  "sniffing": {
-    "enabled": true,
-    "destOverride": ["http", "tls", "fakedns", "quic"]
-  }
-}`;
-  const outboundConfig = `
-{
-  "tag": "OutBound -VLESS + TCP + REALITY + ${port}",
-  "protocol": "vless",
-  "settings": {
-    "vnext": [
-      {
-        "address": "${ip}",
-        "port": ${port},
-        "users": [
-          {
-            "id": "${uuid}",
-            "flow": "",
-            "encryption": "none"
-          }
-        ]
-      }
-    ]
-  },
-  "streamSettings": {
-    "network": "tcp",
-    "security": "reality",
-    "realitySettings": {
-      "publicKey": "${publicKey}",
-      "fingerprint": "chrome",
-      "serverName": "${sni}",
-      "shortId": "${shortIds}",
-      "spiderX": ""
+  {
+    "tag": "inbound-${incomePort}",
+    "listen": "0.0.0.0",
+    "port": ${incomePort},
+    "protocol": "dokodemo-door",
+    "settings": {
+      "address": "127.0.0.1",
+      "port": ${MainInbound_port},
+      "network": ["tcp", "udp"],
+      "followRedirect": false
     },
-    "tcpSettings": {
-      "header": {
-        "type": "none"
+    "streamSettings": null,
+    "sniffing": {
+      "enabled": false,
+      "destOverride": ["http", "tls", "quic", "fakedns"],
+      "metadataOnly": false,
+      "routeOnly": false
+    }
+  },
+  {
+    "tag": "VLESS + TCP + REALITY + ${port}",
+    "listen": "0.0.0.0",
+    "port": ${port},
+    "protocol": "vless",
+    "settings": {
+      "clients": [],
+      "decryption": "none"
+    },
+    "streamSettings": {
+      "network": "tcp",
+      "tcpSettings": {},
+      "security": "reality",
+      "realitySettings": {
+        "show": false,
+        "dest": "${sni}:443",
+        "xver": 0,
+        "serverNames": ["${sni}", "www.${sni}"],
+        "privateKey": "${privateKey}",
+        "publicKey": "${publicKey}",
+        "shortIds": ["${shortIds}"]
+      }
+    },
+    "sniffing": {
+      "enabled": true,
+      "destOverride": ["http", "tls", "fakedns", "quic"]
+    }
+  }`;
+  const outboundConfig = `
+  {
+    "tag": "OutBound -VLESS + TCP + REALITY + ${port}",
+    "protocol": "vless",
+    "settings": {
+      "vnext": [
+        {
+          "address": "${ip}",
+          "port": ${port},
+          "users": [
+            {
+              "id": "${uuid}",
+              "flow": "",
+              "encryption": "none"
+            }
+          ]
+        }
+      ]
+    },
+    "streamSettings": {
+      "network": "tcp",
+      "security": "reality",
+      "realitySettings": {
+        "publicKey": "${publicKey}",
+        "fingerprint": "chrome",
+        "serverName": "${sni}",
+        "shortId": "${shortIds}",
+        "spiderX": ""
+      },
+      "tcpSettings": {
+        "header": {
+          "type": "none"
+        }
       }
     }
-  }
-}`;
+  }`;
   const reverse = `
-  "reverse": {
-    "portals": [
-      {
-        "tag": "${RandomTag}",
-        "domain": "${RandomString}.com"
-      }
-    ],
-    "bridges": [
-      {
-        "tag": "(Bridge)${RandomTag}",
-        "domain": "${RandomString}.com"
-      }
-    ]
-  }
-`;
+    "reverse": {
+      "portals": [
+        {
+          "tag": "${RandomTag}",
+          "domain": "${RandomString}.com"
+        }
+      ],
+      "bridges": [
+        {
+          "tag": "(Bridge)${RandomTag}",
+          "domain": "${RandomString}.com"
+        }
+      ]
+    }
+  `;
   const routing = `
-{
-  "domain": ["full:${RandomString}.com"],
-  "outboundTag": "${RandomTag}",
-  "inboundTag": ["VLESS + TCP + REALITY + ${port}"],
-  "type": "field"
-},
-{
-  "outboundTag": "${RandomTag}",
-  "inboundTag": ["inbound-${incomePort}"],
-  "type": "field"
-},
-{
-  "domain": ["full:${RandomString}.com"],
-  "outboundTag": "OutBound -VLESS + TCP + REALITY + ${port}",
-  "inboundTag": ["(Bridge)${RandomTag}"],
-  "type": "field"
-},
-{
-  "outboundTag": "DIRECT",
-  "inboundTag": ["(Bridge)${RandomTag}"],
-  "type": "field"
-}`;
+  {
+    "domain": ["full:${RandomString}.com"],
+    "outboundTag": "${RandomTag}",
+    "inboundTag": ["VLESS + TCP + REALITY + ${port}"],
+    "type": "field"
+  },
+  {
+    "outboundTag": "${RandomTag}",
+    "inboundTag": ["inbound-${incomePort}"],
+    "type": "field"
+  },
+  {
+    "domain": ["full:${RandomString}.com"],
+    "outboundTag": "OutBound -VLESS + TCP + REALITY + ${port}",
+    "inboundTag": ["(Bridge)${RandomTag}"],
+    "type": "field"
+  },
+  {
+    "outboundTag": "DIRECT",
+    "inboundTag": ["(Bridge)${RandomTag}"],
+    "type": "field"
+  }`;
   document.getElementById("inboundConfig").value = inboundConfig.trim();
   document.getElementById("outboundConfig").value = outboundConfig.trim();
   document.getElementById("reverse").value = reverse.trim();

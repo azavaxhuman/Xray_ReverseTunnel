@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>DDS Reverse Tunnel Config Generator ( VLESS + WS )</title>
     <link rel="stylesheet" href="./style.css" />
-    <links
+    <link
       rel="icon"
       href="https://dailydigitalskills.online/wp-content/uploads/2024/05/cropped-Frame-42-e1714651500707-32x32.png"
       sizes="32x32"
@@ -23,9 +23,7 @@
   <body>
     <div class="container">
       <div class="header">
-        <h1 class="title">
-          DDS Reverse Tunnel Config Generator ( VLESS + WS )
-        </h1>
+        <h1 class="title">DDS Reverse Tunnel Config Generator ( VLESS + WS )</h1>
         <p class="subtitle">
           by
           <a href="https://Dailydigitalskills.online">Daily Digital Skills</a>
@@ -35,16 +33,19 @@
       <div class="form-grid" onchange="generateConfig()">
         <div class="form-group">
           <label for="domain">IP/Domain</label>
-          <input
-            type="text"
-            id="domain"
-            placeholder="Enter Your Domain or IP"
-            value="10.10.10.10 | mydomain.com "
-          />
+          <div class="tra-input">
+            <input
+              class="tr-input-number-input"
+              type="text"
+              id="domain"
+              placeholder="Enter Your Domain or IP"
+              value="10.10.10.10 | mydomain.com "
+            />
+          </div>
         </div>
 
         <div class="form-group">
-          <label for="protocol-toggle">Protocol</label>
+          <label for="protocol-toggle">Security</label>
           <button id="protocol-toggle" class="none" onclick="toggleProtocol()">
             None
           </button>
@@ -52,52 +53,114 @@
 
         <div class="form-group tls-dependent">
           <label for="sni">SNI</label>
-          <input type="text" id="sni" placeholder="Enter SNI" />
+          <div class="tra-input">
+            <input class="tr-input-number-input" type="text" id="sni" placeholder="Enter SNI" />
+          </div>
         </div>
 
         <div class="form-group tls-dependent">
           <label for="pubKey">Public Key</label>
-          <input type="text" id="pubKey" placeholder="Enter Public Key" />
+          <div class="tra-input">
+            <input class="tr-input-number-input" type="text" id="pubKey" placeholder="Enter Public Key" />
+          </div>
         </div>
 
         <div class="form-group tls-dependent">
           <label for="private_Key">Private Key</label>
-          <input type="text" id="private_Key" placeholder="Enter Private Key" />
+          <div class="tra-input">
+            <input class="tr-input-number-input" type="text" id="private_Key" placeholder="Enter Private Key" />
+          </div>
         </div>
 
         <div class="form-group">
           <label for="path">Path</label>
-          <input type="text" id="path" placeholder="Enter path" value="/dds" />
+          <div class="tra-input">
+            <input class="tr-input-number-input" type="text" id="path" placeholder="Enter path" value="/dds" />
+          </div>
         </div>
 
         <div class="form-group">
           <label for="iranIncome">Income Port</label>
-          <input
-            type="number"
-            id="iranIncome"
-            placeholder="Enter Tunnel Income Port"
-            value="4040"
-          />
+          <div class="tr-input-number tr-mt-5">
+            <div class="tr-input-number-inner">
+              <div class="tr-input-number-input-wrap">
+                <input class="tr-input-number-input" type="number" id="iranIncome" name="income-port" placeholder="0" min="1" max="65535" value="4040">
+              </div>
+              <div class="tr-input-number-handler-wrap">
+                <span class="tr-input-number-handler tr-input-number-handler-down rounded-se-lg" id="income-port-down" >
+                  <span class="tricon tricon-down tr-input-number-handler-down-inner">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="0.875rem" height="0.875rem" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M5 12h14"></path>
+                    </svg>
+                  </span>
+                </span>
+                <span class="tr-input-number-handler tr-input-number-handler-up rounded-ee-lg" id="income-port-up">
+                  <span class="tricon tricon-up tr-input-number-handler-up-inner">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="0.875rem" height="0.875rem" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M5 12h14"></path>
+                      <path d="M12 5v14"></path>
+                    </svg>
+                  </span>
+                </span>
+              </div>
+            </div>
+          </div>
         </div>
 
         <div class="form-group">
           <label for="port">InterConnection Inbound Port</label>
-          <input
-            type="number"
-            id="port"
-            placeholder="Enter InterConnection Inbound Port"
-            value="3030"
-          />
+          <div class="tr-input-number tr-mt-5">
+            <div class="tr-input-number-inner">
+              <div class="tr-input-number-input-wrap">
+                <input class="tr-input-number-input" type="number" id="port" name="interconnection-inbound-port" placeholder="0" min="1" max="65535" value="3030">
+              </div>
+              <div class="tr-input-number-handler-wrap">
+                <span class="tr-input-number-handler tr-input-number-handler-down rounded-se-lg" id="interconnection-inbound-port-down" >
+                  <span class="tricon tricon-down tr-input-number-handler-down-inner">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="0.875rem" height="0.875rem" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M5 12h14"></path>
+                    </svg>
+                  </span>
+                </span>
+                <span class="tr-input-number-handler tr-input-number-handler-up rounded-ee-lg" id="interconnection-inbound-port-up">
+                  <span class="tricon tricon-up tr-input-number-handler-up-inner">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="0.875rem" height="0.875rem" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M5 12h14"></path>
+                      <path d="M12 5v14"></path>
+                    </svg>
+                  </span>
+                </span>
+              </div>
+            </div>
+          </div>
         </div>
 
         <div class="form-group">
           <label for="MainOutbound_port">Main Inbound Port</label>
-          <input
-            type="number"
-            id="MainOutbound_port"
-            placeholder="Main Inbound Port"
-            value="1080"
-          />
+          <div class="tr-input-number tr-mt-5">
+            <div class="tr-input-number-inner">
+              <div class="tr-input-number-input-wrap">
+                <input class="tr-input-number-input" type="number" id="MainOutbound_port" name="main-inbound-port" placeholder="0" min="1" max="65535" value="1080">
+              </div>
+              <div class="tr-input-number-handler-wrap">
+                <span class="tr-input-number-handler tr-input-number-handler-down rounded-se-lg" id="main-inbound-port-down" >
+                  <span class="tricon tricon-down tr-input-number-handler-down-inner">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="0.875rem" height="0.875rem" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M5 12h14"></path>
+                    </svg>
+                  </span>
+                </span>
+                <span class="tr-input-number-handler tr-input-number-handler-up rounded-ee-lg" id="main-inbound-port-up">
+                  <span class="tricon tricon-up tr-input-number-handler-up-inner">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="0.875rem" height="0.875rem" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M5 12h14"></path>
+                      <path d="M12 5v14"></path>
+                    </svg>
+                  </span>
+                </span>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -154,7 +217,9 @@
 
       <label for="UUID">UUID</label>
       <div class="uuid-container">
-        <input type="text" id="UUID" readonly />
+        <div class="tra-input">
+          <input class="tr-input-number-input" type="text" id="UUID" readonly />
+        </div>
         <button class="copy-button-uuid" onclick="copyUUID()">Copy</button>
       </div>
       <div class="button-container">
@@ -162,6 +227,7 @@
           Generate Config
         </button>
         <a
+          rel="noopener noreferrer"
           href="https://www.youtube.com/@Dailydigitalskills"
           target="_blank"
           class="social-button youtube-button"
@@ -169,6 +235,7 @@
           YouTube
         </a>
         <a
+          rel="noopener noreferrer"
           href="https://t.me/Dailydigitalskills"
           target="_blank"
           class="social-button telegram-button"
@@ -189,6 +256,7 @@
           src="https://dailydigitalskills.online/wp-content/uploads/2024/09/maxresdefault-1-1024x576.webp"
         />
         <a
+          rel="noopener noreferrer"
           href="https://Youtube.com/@ِDailydigitalskills"
           target="_blank"
           class="youtube-button telegram-button"
@@ -206,21 +274,21 @@
       </p>
 
       <a
+        rel="noopener noreferrer"
         href="https://t.me/Dailydigitalskills"
         target="_blank"
-        class="social-button telegram-button"
+        class="social-button"
       >
         Telegram
       </a>
       <a
         href="https://Youtube.com/@Dailydigitalskills"
         target="_blank"
-        class="youtube-button telegram-button"
+        class="youtube-button"
       >
         YouTube
       </a>
     </div>
-    <div></div>
     <script src="./script.js"></script>
   </body>
 </html>
