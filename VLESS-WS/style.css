@@ -368,6 +368,22 @@ textarea {
 
 }
 
+.return-button {
+  border-radius: 0.5rem;
+  background-color: #334155;
+  color: var(--text);
+  transition: all 0.3s;
+  height: 44px;
+  width: 44px;
+  align-items: center;
+  display: inline-flex;
+  justify-content: center;
+}
+
+.return-button:hover {
+  background-color: #475569;
+}
+
 .tr-input-number {
   box-sizing: border-box;
   margin: 0;
